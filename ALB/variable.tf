@@ -8,6 +8,6 @@ variable "public_subnet_az1_id" {}
 variable "public_subnet_az2_id" {}
 variable "public_subnet_az3_id" {}
 
-variable "public_instance_az1_id" {}
-variable "public_instance_az2_id" {}
-variable "public_instance_az3_id" {}
+variable "private_instance_az1_id" {}
+variable "private_instance_az2_id" {}
+variable "private_instance_az3_id" {}

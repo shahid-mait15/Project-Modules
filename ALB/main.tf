@@ -51,14 +51,14 @@ resource "aws_lb_listener" "alb_http_listener" {
 resource "aws_lb_target_group_attachment" "target_attachment1" {
   
   target_group_arn = aws_lb_target_group.alb_target_group.arn
-  target_id = var.public_instance_az1_id
+  target_id = var.private_instance_az1_id
   
   }
 
 resource "aws_lb_target_group_attachment" "target_attachment2" {
   
   target_group_arn = aws_lb_target_group.alb_target_group.arn
-  target_id = var.public_instance_az2_id
+  target_id = var.private_instance_az2_id
   
   }
 
@@ -66,7 +66,7 @@ resource "aws_lb_target_group_attachment" "target_attachment2" {
 resource "aws_lb_target_group_attachment" "target_attachment3" {
   
   target_group_arn = aws_lb_target_group.alb_target_group.arn
-  target_id = var.public_instance_az3_id
+  target_id = var.private_instance_az3_id
   
   }
 
