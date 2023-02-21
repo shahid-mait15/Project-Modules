@@ -60,7 +60,7 @@ resource "aws_subnet" "public_subnet_az3" {
   
 }
 
-#create route table and add public route
+#create public route table and add public route
 resource "aws_route_table" "public_route_table"{
     vpc_id = aws_vpc.gxi_vpc.id
 
