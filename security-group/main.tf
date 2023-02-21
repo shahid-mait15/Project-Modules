@@ -35,8 +35,8 @@ resource "aws_security_group" "alb_security_group" {
 }
 
 # create security group for the internal private subnet
-resource "aws_security_group" "public_subnet_security_group" {
-  name        = "public subnet security group"
+resource "aws_security_group" "private_subnet_security_group" {
+  name        = "private subnet security group"
   description = "enable http/https access on port 80/443 via alb sg"
   vpc_id      = var.vpc_id
 
@@ -72,6 +72,34 @@ resource "aws_security_group" "public_subnet_security_group" {
   }
 
   tags   = {
-    Name = "public subnet security group"
+    Name = "private subnet security group"
+  }
+}
+
+
+
+# create security group for the public bastion jump host
+resource "aws_security_group" "bastion_host_security_group" {
+  name        = "Bastion host security group"
+  description = "Enable ssh for bastian host"
+  vpc_id      = var.vpc_id
+
+  ingress {
+    description      = "ssh access"
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = -1
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  tags   = {
+    Name = "Bastion host security group"
   }
 }
