@@ -2,8 +2,10 @@ variable "ami" {}
 
 variable "instance_type" {}
 
-variable "public_subnet_security_group_id" {}
+variable "key_name" {}
 
-variable "public_subnet_az1_id" {}
-variable "public_subnet_az2_id" {}
-variable "public_subnet_az3_id" {}
+variable "private_subnet_security_group_id" {}
+
+variable "private_app_subnet_az1_id" {}
+variable "private_app_subnet_az2_id" {}
+variable "private_app_subnet_az3_id" {}
